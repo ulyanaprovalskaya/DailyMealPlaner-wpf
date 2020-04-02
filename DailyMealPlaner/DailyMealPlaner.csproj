@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89F1788D-831A-41B5-B777-DDCD9FD98D69}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DailyMealPlaner</RootNamespace>
+    <AssemblyName>DailyMealPlaner</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=4.5.0.0, Culture=neutral, PublicKeyToken=90ba9c70f846762e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Data Layer\DailyRationDao.cs" />
+    <Compile Include="Data Layer\ICategory.cs" />
+    <Compile Include="Data Layer\IDailyRation.cs" />
+    <Compile Include="Data Layer\IMealtime.cs" />
+    <Compile Include="Data Layer\IProduct.cs" />
+    <Compile Include="Data Layer\IUser.cs" />
+    <Compile Include="Data Layer\PDF.cs" />
+    <Compile Include="Data Layer\UserDao.cs" />
+    <Compile Include="Presentation Layer\AddCategoryWindow.xaml.cs">
+      <DependentUpon>AddCategoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\AddMealtimeWindow.xaml.cs">
+      <DependentUpon>AddMealtimeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\AddProductWindow.xaml.cs">
+      <DependentUpon>AddProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation Layer\IsSelectedToImageConverter.cs" />
+    <Compile Include="Presentation Layer\TreeViewItemBase.cs" />
+    <Compile Include="Service Layer\IService.cs" />
+    <Compile Include="Service Layer\Service.cs" />
+    <Page Include="Presentation Layer\AddCategoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation Layer\AddMealtimeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation Layer\AddProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation Layer\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Business Layer\DailyRation.cs" />
+    <Compile Include="Business Layer\Categories.cs" />
+    <Compile Include="Business Layer\Category.cs" />
+    <Compile Include="Business Layer\Mealtime.cs" />
+    <Compile Include="Business Layer\Product.cs" />
+    <Compile Include="Business Layer\User.cs" />
+    <Compile Include="Data Layer\CategoryDao.cs" />
+    <Compile Include="Data Layer\Db.cs" />
+    <Compile Include="Data Layer\MealtimeDao.cs" />
+    <Compile Include="Data Layer\ProductDao.cs" />
+    <Compile Include="Data Layer\Serializer.cs" />
+    <Compile Include="Presentation Layer\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\carrot.png" />
+    <Resource Include="Resources\check.png" />
+    <Resource Include="Resources\cheese1.png" />
+    <Resource Include="Resources\coffee-break.png" />
+    <Resource Include="Resources\dinner.png" />
+    <Resource Include="Resources\fast-food.png" />
+    <Resource Include="Resources\forpdf.jpg" />
+    <Resource Include="Resources\fruits.png" />
+    <Resource Include="Resources\grape.png" />
+    <Resource Include="Resources\icons8-calories-48.png" />
+    <Resource Include="Resources\lunch.png" />
+    <Resource Include="Resources\mealtime.png" />
+    <Resource Include="Resources\menu.png" />
+    <Resource Include="Resources\muesli.png" />
+    <Resource Include="Resources\muesli1.png" />
+    <Resource Include="Resources\search.png" />
+    <Resource Include="Resources\Webp.net-resizeimage.jpg" />
+    <Resource Include="Resources\Алкоголь.png" />
+    <Resource Include="Resources\Готовые блюда.png" />
+    <Resource Include="Resources\Грибы.png" />
+    <Resource Include="Resources\Завтрак.png" />
+    <Resource Include="Resources\Замороженные овощи.png" />
+    <Resource Include="Resources\Каши, крупы.png" />
+    <Resource Include="Resources\Колбаса.png" />
+    <Resource Include="Resources\Компоты.png" />
+    <Resource Include="Resources\Масла.png" />
+    <Resource Include="Resources\Молочные.png" />
+    <Resource Include="Resources\Мучное.png" />
+    <Resource Include="Resources\Мясо.png" />
+    <Resource Include="Resources\Обед.png" />
+    <Resource Include="Resources\Овощи.png" />
+    <Resource Include="Resources\Орехи.png" />
+    <Resource Include="Resources\Прочее.png" />
+    <Resource Include="Resources\Рыба.png" />
+    <Resource Include="Resources\Сладости.png" />
+    <Resource Include="Resources\Соки.png" />
+    <Resource Include="Resources\Супы.png" />
+    <Resource Include="Resources\Сухофрукты.png" />
+    <Resource Include="Resources\Сыры.png" />
+    <Resource Include="Resources\Творог.png" />
+    <Resource Include="Resources\Ужин.png" />
+    <Resource Include="Resources\Хлеб.png" />
+    <Resource Include="Resources\Ягоды.png" />
+    <Resource Include="Resources\Яйца.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
