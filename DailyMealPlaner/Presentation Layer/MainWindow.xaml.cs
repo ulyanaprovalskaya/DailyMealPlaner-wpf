@@ -120,6 +120,7 @@ namespace DailyMealPlaner.Presentation_Layer
                 userCalories.Visibility = Visibility.Visible;
                 calories.Text = ((int)service.GetDailyCaloriesRate()).ToString();
                 clearUserInfo.Visibility = Visibility.Visible;
+                progressBar.Maximum = UpdateCaloriesRate();
 
                 if (service.RationProductsCount() != 0)
                 {
